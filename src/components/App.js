@@ -13,8 +13,7 @@ class App extends Component {
       pigs: hogs,
       filters: {
         greased: 'all',
-        name: false,
-        weight: false
+        name: true
       }
     }
   }
@@ -35,13 +34,11 @@ class App extends Component {
     let greased = []
     let ungreased = []
 
-    if (this.state.filters.weight === true) {allHogs = hogs.sort((a, b) => (a.weight > b.weight) ? 1: -1)} else {allHogs = hogs}
-
     if (this.state.filters.name === true) {allHogs = hogs.sort(function(a, b) {
       var textA = a.name.toUpperCase();
       var textB = b.name.toUpperCase();
       return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-    })} else {allHogs = hogs}
+    })} else {allHogs = hogs.sort((a, b) => (a.weight > b.weight) ? 1: -1)}
 
     allHogs.map(pig => (pig.greased === true) ? greased.push(pig) : ungreased.push(pig))
 
@@ -56,22 +53,13 @@ class App extends Component {
       }
     }, this.getGreasedPigs)
   }
-  weightPig = () => {
-    let weight = this.state.filters.weight
-    this.setState({
-      filters: {
-        ...this.state.filters,
-        weight: (weight === false) ? true : false
-      }
-    }, this.getGreasedPigs)
-  }
 
   render() {
     
     return (
       <div className="App">
           < Nav />
-          <Filter handleChange={this.greasedPigs} handleCheck={this.alphabetical} handleCheque={this.weightPig}/>
+          <Filter handleChange={this.greasedPigs} handleCheck={this.alphabetical}/>
           <PigBrowser pigs={this.state.pigs}/>
       </div>
     )

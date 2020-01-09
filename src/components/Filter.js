@@ -9,8 +9,11 @@ class Filter extends React.Component {
           <option value="true">Greased</option>
           <option value="false">Ungreased</option>
         </select>
-        <p>Alphabetical   <input type="checkbox" onChange={this.props.handleCheck}/></p>
-        <p>Weight   <input type="checkbox" onChange={this.props.handleCheque}/></p>
+
+        <select onChange={event => this.props.handleCheck(event)} name="alpha" id="alpha">
+          <option value="alpha">Alphabetize</option>
+          <option value="weight">Weight</option>
+        </select>
     </div>
 
 
