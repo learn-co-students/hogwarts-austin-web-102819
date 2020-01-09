@@ -19,6 +19,7 @@ export class HogContainer extends Component {
             specialty={hog.specialty}
             greased={hog.greased}
             weight={hog.weight}
+            hog = {hog}
           />
         ))}
       </div>

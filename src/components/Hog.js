@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import HogDetail from "./HogDetail";
 // import hogs from "../porkers_data";
 
 export class Hog extends Component {
@@ -11,20 +12,19 @@ export class Hog extends Component {
   }
 
   handleDetailsClick = () => {
-    //when clicked, change clicked to true
     this.setState({ clicked: !this.state.clicked });
   };
 
-  render() {
 
-    
+  render() {
     return (
       <div className="ui card eight wide column pigTile">
         <h3>{this.props.name}</h3>
-        
+
         <div>
-          <button className='ui button' onClick={this.handleDetailsClick}>
-          {this.state.clicked ? "Less Info" : "More Info"}
+          {this.state.clicked ? <HogDetail hog={this.props.hog} /> : null}
+          <button className="ui button" onClick={this.handleDetailsClick}>
+            {this.state.clicked ? "Less Info" : "More Info"}
           </button>
         </div>
       </div>
