@@ -80,7 +80,7 @@ ul {
   float: left;
   margin: 2%;
   padding: 1%;
-  outline: #3B0B0B dotted thick;
+  outline: #3B0B0B thick;
   transition: 0.75s;
   opacity: 1;
 }
@@ -118,7 +118,7 @@ ul {
 }
 
 .pigTile:hover {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 
