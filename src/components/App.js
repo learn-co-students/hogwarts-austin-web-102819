@@ -10,7 +10,6 @@ class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			allhogs: hogs,
 			hogs: hogs,
 			grease: 'all',
 			sortBy: 'name'
@@ -28,9 +27,8 @@ class App extends Component {
 	handleFilterHogs = () => {
 		if (this.state.grease !== 'all') {
 			const isGreased = this.state.grease === 'true' ? true : false;
-			console.log(isGreased);
 
-			let filteredHogs = this.state.allhogs.filter(function(hog) {
+			let filteredHogs = hogs.filter(function(hog) {
 				return hog.greased === isGreased;
 			});
 
@@ -38,7 +36,7 @@ class App extends Component {
 
 			this.setState({ hogs: filteredHogs });
 		} else {
-			this.setState({ hogs: this.state.allhogs });
+			this.setState({ hogs: hogs });
 		}
 	};
 
@@ -49,7 +47,7 @@ class App extends Component {
 		if (this.state.sortBy === 'name') {
 			sortedArray = this.state.hogs.sort(function(a, b) {
 				if (a.name < b.name) return -1;
-				else if (a.name == b.name) return 0;
+				else if (a.name === b.name) return 0;
 				else return 1;
 			});
 
@@ -57,7 +55,7 @@ class App extends Component {
 		} else {
 			sortedArray = this.state.hogs.sort(function(a, b) {
 				if (a.weight < b.weight) return -1;
-				else if (a.weight == b.weight) return 0;
+				else if (a.weight === b.weight) return 0;
 				else return 1;
 			});
 		}

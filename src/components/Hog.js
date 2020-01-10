@@ -11,7 +11,7 @@ class Hog extends React.Component {
 
 	render() {
 		return (
-			<div className="card">
+			<div className="ui card">
 				<div className="content">
 					<div className="header">{this.props.name}</div>
 					<img
