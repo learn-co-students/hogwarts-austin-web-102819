@@ -18,11 +18,15 @@ class HogShowcase extends Component {
 
 	render() {
 		return (
-			<div className="hog-card" onClick={this.showDetails}>
+			<div className="hog-card">
 				{!this.state.showDetails ? (
-					<Hog name={this.props.hog.name} img={this.props.hog.name} />
+					<Hog
+						showDetails={this.showDetails}
+						name={this.props.hog.name}
+						img={this.props.hog.name}
+					/>
 				) : (
-					<HogDetails hog={this.props.hog} />
+					<HogDetails showDetails={this.showDetails} hog={this.props.hog} />
 				)}
 			</div>
 		);

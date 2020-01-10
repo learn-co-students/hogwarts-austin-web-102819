@@ -8,7 +8,7 @@ class HogDetails extends Component {
 	render() {
 		const { name, specialty, weight } = this.props.hog;
 		return (
-			<div className="ui card">
+			<div className="ui card" onClick={this.props.showDetails}>
 				<div className="content">
 					<a className="header">{name}</a>
 					<div className="description">
